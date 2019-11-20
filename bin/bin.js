@@ -7,7 +7,6 @@ const shelljs = require('shelljs')
 
 const log = console.log
 const { workDir, torrentDir } = require('../config')
-
 const { s: season, n: epCount, mkt } = argv
 
 if (typeof epCount !== 'number' || !season) {
