@@ -1,0 +1,17 @@
+{
+  "name": "scene-tv-pack",
+  "version": "0.0.1",
+  "description": "tv pack",
+  "main": "index.js",
+  "repository": "https://github.com/lushdog/scene-tv-pack.git",
+  "author": "lushdog",
+  "bin": {
+    "tvpack": "bin/bin.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "shelljs": "^0.8.3",
+    "yargs": "^15.0.2"
+  }
+}
