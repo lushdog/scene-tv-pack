@@ -31,7 +31,9 @@ for (let index = 1; index <= epCount; index++) {
   const epname = `${prefix}.${seasonNumber}E${String(index).padStart(2, '0')}.${postfix}`
   log(`episode name is ${epname}`)
   const epDirFilePath = `${workDir}/${epname}/${epname.toLowerCase()}`
+  log(`episode dir rar path is ${epDirFilePath}`)
   const epDirPath = `${workDir}/${epname}/`
+  log(`episode dir path is ${epDirFilePath}`)
   shelljs.exec(`unrar ${epDirFilePath}.rar`)
   const files = fs.readdirSync(epDirPath)
   const videoFile = files.find(item => /\.mkv$/.test(item))
