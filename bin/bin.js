@@ -24,8 +24,12 @@ const dirEx = fs.existsSync(dirSeasonPath)
 
 !dirEx && fs.mkdirSync(dirSeasonPath)
 
+log('prefix', prefix)
+log('postfix', postfix)
+
 for (let index = 1; index <= epCount; index++) {
   const epname = `${prefix}.${seasonNumber}E${String(index).padStart(2, '0')}.${postfix}`
+  log(`episode name is ${epname}`)
   const epDirFilePath = `${workDir}/${epname}/${epname.toLowerCase()}`
   const epDirPath = `${workDir}/${epname}/`
   shelljs.exec(`unrar ${epDirFilePath}.rar`)

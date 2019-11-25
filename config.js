@@ -1,4 +1,4 @@
 module.exports = {
-  workDir: './TV',
+  workDir: './',
   torrentDir: './TV'
 }
