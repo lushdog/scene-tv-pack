@@ -29,20 +29,20 @@ log('postfix', postfix)
 
 for (let index = 1; index <= epCount; index++) {
   const epname = `${prefix}.${seasonNumber}E${String(index).padStart(2, '0')}.${postfix}`
-  log(`episode name is ${epname}`)
   const epDirFilePath = `${workDir}/${epname}/${epname.toLowerCase()}`
-  log(`episode dir rar path is ${epDirFilePath}`)
-  const epDirPath = `${workDir}/${epname}/`
-  log(`episode dir path is ${epDirPath}`)
-  log(`unrar com is unrar ${epDirFilePath}.rar`)
-  shelljs.exec(`unrar e ${epDirFilePath}.rar`)
-  const files = fs.readdirSync(epDirPath)
-  const videoFile = files.find(item => /\.mkv$/.test(item))
-  if (index === 1) {
-    const mediainfo = shelljs.exec(`mediainfo ${epDirPath}/${videoFile}`, { silent: true }).stdout
-    fs.writeFileSync(`${config.workDir}/${videoFile}-mediainfo.txt`, mediainfo)
-  }
-  shelljs.mv(`${epDirPath}/${videoFile}`, dirSeasonPath)
+  // const epDirPath = `${workDir}/${epname}/`
+  shelljs.exec(`unrar x ${epDirFilePath}.rar ${dirSeasonPath}`)
+}
+
+const files = fs.readdirSync(dirSeasonPath)
+const videoFile = files.filter(item => /\.mkv$/.test(item))
+
+if (videoFile.length === epCount) {
+  const mediainfo = shelljs.exec(`mediainfo ${dirSeasonPath}/${videoFile[0]}`, { silent: true }).stdout
+  fs.writeFileSync(`${config.workDir}/${videoFile[0]}-mediainfo.txt`, mediainfo)
+} else {
+  log(chalk.red.bold('Episode number wrong!'))
+  process.exit(0)
 }
 
 mkt && shelljs.exec(`mktorrent -v -p -l 24 -a http://announce.net -o ${torrentDir}/${season}.torrent ${dirSeasonPath}`)
