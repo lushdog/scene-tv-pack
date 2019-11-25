@@ -39,7 +39,7 @@ const videoFile = files.filter(item => /\.mkv$/.test(item))
 
 if (videoFile.length === epCount) {
   const mediainfo = shelljs.exec(`mediainfo ${dirSeasonPath}/${videoFile[0]}`, { silent: true }).stdout
-  fs.writeFileSync(`${config.workDir}/${videoFile[0]}-mediainfo.txt`, mediainfo)
+  fs.writeFileSync(`${config.torrentDir}/${videoFile[0]}-mediainfo.txt`, mediainfo)
 } else {
   log(chalk.red.bold('Episode number wrong!'))
   process.exit(0)
