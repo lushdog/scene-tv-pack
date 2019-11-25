@@ -4,6 +4,7 @@ const fs = require('fs')
 const argv = require('yargs').argv
 const chalk = require('chalk')
 const shelljs = require('shelljs')
+const config = require('../config')
 
 const log = console.log
 const { workDir, torrentDir } = require('../config')
