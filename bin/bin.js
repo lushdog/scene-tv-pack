@@ -35,7 +35,7 @@ for (let index = 1; index <= epCount; index++) {
   const epDirPath = `${workDir}/${epname}/`
   log(`episode dir path is ${epDirPath}`)
   log(`unrar com is unrar ${epDirFilePath}.rar`)
-  shelljs.exec(`unrar ${epDirFilePath}.rar`)
+  shelljs.exec(`unrar e ${epDirFilePath}.rar`)
   const files = fs.readdirSync(epDirPath)
   const videoFile = files.find(item => /\.mkv$/.test(item))
   if (index === 1) {
