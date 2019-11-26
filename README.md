@@ -13,7 +13,7 @@ install node.js
 
 `cd scene-tv-pack && npm link`
 
-### edit config.js, workDir is sigle episode path
+### copy config.example.js to config.js. edit config.js, workDir is sigle episode path
 
 ## To use
 
