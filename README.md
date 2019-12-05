@@ -17,7 +17,7 @@ install node.js
 
 ## To use
 
-`tvpack -s=The.Handmaids.Tale.S03.720p.BluRay.x264-MAYHEM -n=13 -mkt`
+`tvpack -s=The.Handmaids.Tale.S03.720p.BluRay.x264-MAYHEM -n=13 --mkt`
 
 ### Params
 
